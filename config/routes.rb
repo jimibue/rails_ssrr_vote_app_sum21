@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   
   root 'items#app'
   get '/items', to: 'items#index'
+  post '/items', to: 'items#create'
 end
