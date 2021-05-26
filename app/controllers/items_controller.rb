@@ -28,6 +28,19 @@ class ItemsController < ApplicationController
        end
     end
 
+    def update
+        @item = Item.find(params[:id])
+        if(@item.update(item_params))
+         # redirect to index ssrr
+          render json: @item
+        else
+          # give back a 422 error with the error messages
+          # 4XX - client error
+          # 422 - saying client gave you bad input
+          render json:  @item.errors.full_messages, status: :unprocessable_entity
+        end
+     end
+
     private
 
     def item_params

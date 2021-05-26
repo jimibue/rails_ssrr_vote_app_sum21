@@ -3,14 +3,14 @@ import Item from './Item';
 
 const Items = (props) => {
     
-    const {itemz} = props
+    const {itemz, updateItem} = props
 
     const renderComponents = ()=>{
         if (itemz.length === 0){
             return <p>no items</p>
         }
         return itemz.map( item => {
-            return <Item key={item.id} {...item}/>
+            return <Item key={item.id} {...item} updateItem={updateItem}/>
             // return <Item 
             //          key={item.id}
             //          name={item.name} 

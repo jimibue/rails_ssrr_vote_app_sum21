@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root 'items#app'
   get '/items', to: 'items#index'
   post '/items', to: 'items#create'
+  put '/items/:id', to: 'items#update'
+  patch '/items/:id', to: 'items#update'
 end

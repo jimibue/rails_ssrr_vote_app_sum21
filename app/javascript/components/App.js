@@ -19,6 +19,17 @@ const App = (props) => {
        setItems(updateItems)
    }
 
+   const updateItem = (updateItem) => {
+      let updateItems = items.map(item =>{
+          if(item.id !== updateItem.id){
+              return item
+          } else{
+              return updateItem
+          }
+      })
+      setItems(updateItems)
+   }
+
    return (
        <div>
            <h1>App.js Page</h1>
@@ -27,7 +38,7 @@ const App = (props) => {
            {showForm && <ItemForm addItem={addItem}/>}
            
            {/* I could render Items Here renderItems() */}
-           <Items itemz={items} />
+           <Items itemz={items} updateItem={updateItem} />
        </div>
    )
 }
